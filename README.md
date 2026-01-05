@@ -1,6 +1,15 @@
-# MCP Gemini Imagen Server
+# MCP Nano Banana
 
 An MCP (Model Context Protocol) server that exposes Google Gemini's image generation capabilities (Nano Banana / Nano Banana Pro) as tools that Claude can use.
+
+## Installation
+
+```bash
+git clone https://github.com/Pgarciapg/mcp-nano-banana.git
+cd mcp-nano-banana
+npm install
+npm run build
+```
 
 ## Features
 
@@ -19,15 +28,7 @@ An MCP (Model Context Protocol) server that exposes Google Gemini's image genera
 2. Create or select a project
 3. Generate an API key
 
-### 2. Install Dependencies
-
-```bash
-cd mcp-gemini-imagen
-npm install
-npm run build
-```
-
-### 3. Set Your API Key
+### 2. Set Your API Key
 
 Add your Gemini API key to your shell profile (`~/.zshrc` or `~/.bashrc`):
 
@@ -40,7 +41,7 @@ Then reload your shell:
 source ~/.zshrc
 ```
 
-### 4. Configure Claude Code
+### 3. Configure Claude Code
 
 Add the server to Claude Code's MCP config. Edit `~/.claude/.mcp.json`:
 
@@ -49,7 +50,7 @@ Add the server to Claude Code's MCP config. Edit `~/.claude/.mcp.json`:
   "mcpServers": {
     "gemini-imagen": {
       "command": "node",
-      "args": ["/path/to/mcp-gemini-imagen/dist/index.js"],
+      "args": ["/path/to/mcp-nano-banana/dist/index.js"],
       "env": {
         "GEMINI_API_KEY": "${GEMINI_API_KEY}",
         "IMAGEN_OUTPUT_DIR": "/path/to/output/folder"
@@ -59,7 +60,7 @@ Add the server to Claude Code's MCP config. Edit `~/.claude/.mcp.json`:
 }
 ```
 
-### 5. Restart Claude Code
+### 4. Restart Claude Code
 
 After configuring, restart Claude Code to load the new MCP server.
 
